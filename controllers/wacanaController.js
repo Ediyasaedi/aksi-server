@@ -64,7 +64,7 @@ class WacanaController {
                 wacana.update({
                     title, img_url, kelas, UserId
                 })
-                res.status(200).json({ msg: `wacana with id: ${wacana.id} updated` })
+                res.status(200).json({ msg: `wacana with id: ${wacana.id} has updated` })
             }
         } catch (error) {
             console.log(error, '<<< ERROR at updateWacana controller')
@@ -79,7 +79,7 @@ class WacanaController {
             if(!wacana) throw { name: 'NotFound' }
             else {
                 wacana.destroy()
-                res.status(200).json({ msg: `wacana with id: ${wacana.id} deleted` })
+                res.status(200).json({ msg: `wacana with id: ${wacana.id} has deleted` })
             }
         } catch (error) {
             console.log(error, '<<< ERROR at deleteWacana controller')

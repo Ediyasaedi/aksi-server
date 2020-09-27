@@ -93,7 +93,7 @@ class UserController {
                     email, name, img_url, role
                 })
 
-                res.status(201).json({ msg: `${user.id} updated`})
+                res.status(201).json({ msg: `${user.id} has updated`})
             }
         } catch (error) {
             console.log(error, '<<< ERROR at updateUser controller')
@@ -109,7 +109,7 @@ class UserController {
             else {
                 user.destroy()
 
-                res.status(201).json({ msg: `${user.id} deleted`})
+                res.status(201).json({ msg: `${user.id} has deleted`})
             }
         } catch (error) {
             console.log(error, '<<< ERROR at deleteUser controller')
