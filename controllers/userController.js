@@ -121,9 +121,9 @@ class UserController {
   static async updateUser(req, res, next) {
     try {
       const { id } = req.params;
-      const { email, name, img_url, role } = req.body;
+      const { email, name, img_url, role, password } = req.body;
 
-      let user = await User.findByPk(id);
+      let user = await User.findByPk(Number(id));
       if (!user) throw { name: "NotFound" };
       else {
         user.update({
@@ -131,6 +131,7 @@ class UserController {
           name,
           img_url,
           role,
+          password,
         });
 
         res.status(201).json({ msg: `${user.id} has updated` });

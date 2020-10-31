@@ -1,9 +1,7 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 
-const { hashPassword } = require('../helpers/bcrypt')
+const { hashPassword } = require("../helpers/bcrypt");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -13,44 +11,46 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      User.hasMany(models.Wacana, { foreignKey: 'UserId' })
+      User.hasMany(models.Wacana, { foreignKey: "UserId" });
     }
-  };
-  User.init({
-    email: {
-      type: DataTypes.STRING,
-      unique: true,
-      allowNull: false,
-      validate: {
-        isEmail: true,
-        notNull: true,
-        notEmpty: true
-      }
-    },
-    name: DataTypes.STRING,
-    role: DataTypes.STRING,
-    img_url: DataTypes.STRING,
-    password: {
-      type: DataTypes.STRING,
-      unique: true,
-      allowNull: false,
-      validate: {
-        notNull: true,
-        notEmpty: true,
-        len: [6, 25]
-      }
-    }
-  }, {
-    sequelize,
-    modelName: 'User',
-    hooks: {
-      beforeCreate: (user, opt) => {
-        user.password = hashPassword(user.password)
+  }
+  User.init(
+    {
+      email: {
+        type: DataTypes.STRING,
+        unique: true,
+        allowNull: false,
+        validate: {
+          isEmail: true,
+          notNull: true,
+          notEmpty: true,
+        },
       },
-      beforeUpdate: (user, opt) => {
-        user.password = hashPassword(user.password)
-      }
+      name: DataTypes.STRING,
+      role: DataTypes.STRING,
+      img_url: DataTypes.STRING,
+      password: {
+        type: DataTypes.STRING,
+        unique: true,
+        allowNull: false,
+        validate: {
+          notNull: true,
+          notEmpty: true,
+        },
+      },
+    },
+    {
+      sequelize,
+      modelName: "User",
+      hooks: {
+        beforeCreate: (user, opt) => {
+          user.password = hashPassword(user.password);
+        },
+        beforeUpdate: (user, opt) => {
+          user.password = hashPassword(user.password);
+        },
+      },
     }
-  });
+  );
   return User;
 };
