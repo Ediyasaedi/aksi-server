@@ -14,7 +14,6 @@ class WacanaController {
 
       res.status(201).json({ newWacana });
     } catch (error) {
-      console.log(error, "<<< ERROR at createWacanaByAdmin controller");
       next(error);
     }
   }
@@ -26,7 +25,6 @@ class WacanaController {
       });
       res.status(200).json({ wacanas });
     } catch (error) {
-      console.log(error, "<<< ERROR at readAllByAdmin controller");
       next(error);
     }
   }
@@ -41,7 +39,6 @@ class WacanaController {
       });
       res.status(200).json({ wacanas });
     } catch (error) {
-      console.log(error, "<<< ERROR at readAllByAdmin controller");
       next(error);
     }
   }
@@ -62,7 +59,6 @@ class WacanaController {
         res.status(200).json({ wacana });
       }
     } catch (error) {
-      console.log(error, "<<< ERROR at readById controller");
       next(error);
     }
   }
@@ -85,7 +81,6 @@ class WacanaController {
           .json({ msg: `wacana with id: ${wacana.id} has updated` });
       }
     } catch (error) {
-      console.log(error, "<<< ERROR at updateWacana controller");
       next(error);
     }
   }
@@ -102,7 +97,6 @@ class WacanaController {
           .json({ msg: `wacana with id: ${wacana.id} has deleted` });
       }
     } catch (error) {
-      console.log(error, "<<< ERROR at deleteWacana controller");
       next(error);
     }
   }

@@ -37,7 +37,6 @@ class UserController {
         }
       }
     } catch (error) {
-      console.log(error, "<<< ERROR at login controller");
       next(error);
     }
   }
@@ -59,7 +58,6 @@ class UserController {
         role: newAdmin.role,
       });
     } catch (error) {
-      console.log(error, "<<< ERROR at addadmin controller");
       next(error);
     }
   }
@@ -83,7 +81,6 @@ class UserController {
         role: newUser.role,
       });
     } catch (error) {
-      console.log(error, "<<< ERROR at createUser controller");
       next(error);
     }
   }
@@ -100,7 +97,6 @@ class UserController {
 
       res.status(200).json({ users });
     } catch (error) {
-      console.log(error, "<<< ERROR at readAllByRole controller");
       next(error);
     }
   }
@@ -113,7 +109,6 @@ class UserController {
 
       res.status(200).json({ user });
     } catch (error) {
-      console.log(error, "<<< ERROR at readAllByRole controller");
       next(error);
     }
   }
@@ -137,7 +132,6 @@ class UserController {
         res.status(201).json({ msg: `${user.id} has updated` });
       }
     } catch (error) {
-      console.log(error, "<<< ERROR at updateUser controller");
       next(error);
     }
   }
@@ -153,7 +147,6 @@ class UserController {
         res.status(201).json({ msg: `${user.id} has deleted` });
       }
     } catch (error) {
-      console.log(error, "<<< ERROR at deleteUser controller");
       next(error);
     }
   }

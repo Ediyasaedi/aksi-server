@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Wacana.belongsTo(models.User, { foreignKey: "UserId" });
       Wacana.hasMany(models.Article, { foreignKey: "WacanaId" });
+      Wacana.hasMany(models.Question, { foreignKey: "WacanaId" });
     }
   }
   Wacana.init(

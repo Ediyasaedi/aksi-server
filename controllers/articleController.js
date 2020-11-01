@@ -14,7 +14,6 @@ class ArticleController {
 
       res.status(201).json({ newArticle });
     } catch (error) {
-      console.log(error, "<<<< ERROR di createArticleByAdmin");
       next(error);
     }
   }
@@ -31,7 +30,6 @@ class ArticleController {
 
       res.status(200).json({ article });
     } catch (error) {
-      console.log(error, "<<<< ERROR di readAllByWacanaId");
       next(error);
     }
   }
@@ -44,7 +42,6 @@ class ArticleController {
 
       res.status(200).json({ article });
     } catch (error) {
-      console.log(error, "<<<< ERROR di readAllByWacanaId");
       next(error);
     }
   }
@@ -69,7 +66,6 @@ class ArticleController {
           .json({ msg: `article with id: ${article.id} has updated` });
       }
     } catch (error) {
-      console.log(error, "<<<< ERROR di readAllByWacanaId");
       next(error);
     }
   }
@@ -88,7 +84,6 @@ class ArticleController {
           .json({ msg: `article with id: ${article.id} has deleted` });
       }
     } catch (error) {
-      console.log(error, "<<<< ERROR di deleteByArticleId");
       next(error);
     }
   }
