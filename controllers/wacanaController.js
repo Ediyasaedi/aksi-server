@@ -29,6 +29,15 @@ class WacanaController {
     }
   }
 
+  static async getByApps(req, res, next) {
+    try {
+      let wacanas = await Wacana.findAll();
+      res.status(200).json({ wacanas });
+    } catch (error) {
+      next(error);
+    }
+  }
+
   static async readAllByKelas(req, res, next) {
     try {
       const { kelas } = req.params;

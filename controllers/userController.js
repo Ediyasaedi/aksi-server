@@ -85,6 +85,44 @@ class UserController {
     }
   }
 
+  static async loginUser(req, res, next) {
+    try {
+      const { email, password } = req.body;
+
+      const user = await User.findOne({
+        where: {
+          email,
+        },
+      });
+
+      if (!user)
+        throw {
+          name: "AuthenticationFailed",
+          message: "invalid email or password",
+        };
+      else {
+        let validPassword = comparePassword(password, user.password);
+        if (!validPassword)
+          throw {
+            name: "AuthenticationFailed",
+            message: "invalid email or password",
+          };
+        else {
+          const payload = {
+            id: user.id,
+            email: user.email,
+            role: user.role,
+          };
+
+          const token = generateToken(payload);
+          res.status(200).json({ token });
+        }
+      }
+    } catch (error) {
+      next(error);
+    }
+  }
+
   static async readAllByRole(req, res, next) {
     try {
       const { role } = req.params;
