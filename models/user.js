@@ -12,6 +12,11 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       User.hasMany(models.Wacana, { foreignKey: "UserId" });
+
+      User.belongsToMany(models.Wacana, {
+        through: models.Nilai,
+      });
+      User.hasMany(models.Nilai);
     }
   }
   User.init(

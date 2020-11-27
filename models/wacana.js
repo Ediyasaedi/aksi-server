@@ -12,6 +12,11 @@ module.exports = (sequelize, DataTypes) => {
       Wacana.belongsTo(models.User, { foreignKey: "UserId" });
       Wacana.hasMany(models.Article, { foreignKey: "WacanaId" });
       Wacana.hasMany(models.Question, { foreignKey: "WacanaId" });
+
+      Wacana.belongsToMany(models.User, {
+        through: models.Nilai,
+      });
+      Wacana.hasMany(models.Nilai);
     }
   }
   Wacana.init(
