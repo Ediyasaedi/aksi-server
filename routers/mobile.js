@@ -13,5 +13,6 @@ route.get("/questions/:id", QuestionController.readAllByWacanaId);
 
 route.post("/nilai", NilaiController.createNilai);
 route.get("/nilai/:id", NilaiController.getAllNilai);
+route.delete("/nilai", NilaiController.deleteNilai);
 
 module.exports = route;

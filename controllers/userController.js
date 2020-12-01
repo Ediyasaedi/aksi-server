@@ -1,6 +1,7 @@
 const { comparePassword } = require("../helpers/bcrypt");
 const { generateToken } = require("../helpers/jwt");
 const { User } = require("../models");
+const { use } = require("../routers");
 
 class UserController {
   static async login(req, res, next) {

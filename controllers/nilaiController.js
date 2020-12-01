@@ -35,6 +35,22 @@ class NilaiController {
       next(error);
     }
   }
+
+  static async deleteNilai(req, res, next) {
+    try {
+      const { date } = req.body;
+      Nilai.destroy({
+        where: {
+          createdAt: date,
+        },
+      });
+
+      res.status(201).json({ msg: `nilai has deleted` });
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  }
 }
 
 module.exports = NilaiController;
