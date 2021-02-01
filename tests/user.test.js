@@ -32,7 +32,7 @@ afterAll(function (done) {
 });
 
 describe("Register Admin || Success Case", () => {
-  test("Should send object with keys: token", (done) => {
+  test("Should send object with keys: email, role", (done) => {
     request(app)
       .post("/addadmin")
       .send(adminData)
