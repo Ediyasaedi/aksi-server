@@ -4,6 +4,10 @@ const mobileRoute = require("./mobile");
 const UserController = require("../controllers/userController");
 const { adminAuthentication } = require("../middlewares/adminAuthentication");
 
+route.get("/", (req, res) => {
+  res.send("Deploy Success!!");
+});
+
 route.post("/addadmin", UserController.addAdmin);
 route.post("/login", UserController.login);
 route.use("/admin", adminAuthentication, adminRoute);
